@@ -4,20 +4,31 @@
 if(isset($_POST['title'] )&& $_POST['title'] !==" "
 && isset($_POST['cat_id'] )&& $_POST['cat_id'] !==" "
 &&isset($_POST['body'] )&& $_POST['body'] !==" "
-&&isset($_FILES['image'] )&& $_POST['image']['name'] !==" "
+&&isset($_FILES['image'])&& $_FILES['image']['name'] !==" "
 
 )
 {
 global $pdo;
 $query="SELECT * FROM php_project.categories where id=?;";
 $statement=$pdo->prepare($query);
-$statement->execute($_POST['cat_id']);
+$statement->execute([$_POST['cat_id']]);
 $category=$statement->fetch();
+
 $allowmimes=["png","jpeg","jpg","gif"];
 $imagemime=pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
 if(!in_array($imagemime,$allowmimes)){
     redirect("panel/post");
 }
+$basepath=dirname(dirname(__dir__));
+$image=('/assets/images/post/').date('y_m_d_h_i_s').'.'.$imagemime;
+$image_upload=move_uploaded_file($_FILES['image']['tmp_name'],$basepath.$image);
+if($category!==false && $image_upload!==false)
+    {
+    $query="INSERT INTO php_project.posts set title=?,cat_id=?,body=?,image=?;";
+    $statement=$pdo->prepare($query);
+    $statement->execute([$_POST['title'],$_POST['cat_id'] ,$_POST['body'] ,$image]);
+}
+redirect('panel/post');
 
 
 

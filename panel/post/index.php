@@ -62,7 +62,7 @@ global $pdo;
                             <tr>
                                 <td><?= $post->id ?></td>
                                 <td>
-                                    <img style="width: 90px;" src="">
+                                    <img style="width: 90px;" src="<?= asset($post->image) ?>">
                                 </td>
                                 <td><?= $post->title ?></td>
                                 <td><?= $post->category_name ?></td>
