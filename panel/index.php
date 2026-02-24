@@ -1,5 +1,6 @@
 <?php
     require_once '../functions/helpers.php';
+    require_once "../functions/cheak-login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

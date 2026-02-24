@@ -1,6 +1,7 @@
 <?php
     require_once '../../functions/helpers.php';
     require_once '../../functions/pdo_connection.php';
+      require_once "../../functions/cheak-login.php";
 if(isset($_POST['title'] )&& $_POST['title'] !==" "
 && isset($_POST['cat_id'] )&& $_POST['cat_id'] !==" "
 &&isset($_POST['body'] )&& $_POST['body'] !==" "

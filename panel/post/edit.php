@@ -1,6 +1,7 @@
 <?php
     require_once '../../functions/helpers.php';
     require_once '../../functions/pdo_connection.php';
+      require_once "../../functions/cheak-login.php";
     global $pdo;
     if(!isset($_GET['post_id'])){
         redirect('panel/post');
