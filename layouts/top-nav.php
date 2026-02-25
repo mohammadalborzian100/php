@@ -24,7 +24,7 @@ session_start();?>
             foreach($categories as$category){
             ?>    
             <li class="nav-item ">
-                <a class="nav-link " href=" "><?= $category->name ?></a>
+                <a class="nav-link " href="<?= url("categories.php?cat_id=".$category->id) ?> "><?= $category->name ?></a>
 
                 <?php } ?>
                

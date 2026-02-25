@@ -31,7 +31,7 @@ require_once "functions/pdo_connection.php"
                 ?>
                 <section class="col-md-4">
                     <section class="mb-2 overflow-hidden" style="max-height: 15rem;">
-                    <img class="img-fluid" src="<?= asset($post->image) ?>" alt="" width="100" ></section>
+                    <img class="img-fluid" src="<?= asset($post->image) ?>" alt="" width="150" height="150" ></section>
                     <h2 class="h5 text-truncate"><?= $post->title ?></h2>
                     <p><?= substr($post->body ,0,30)?></p>
                     <p><a class="btn btn-primary" href="<?= url("detail.php?post_id=".$post->id) ?>" role="button">View details »</a></p>
