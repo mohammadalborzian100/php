@@ -25,7 +25,7 @@ $category=$statement->fetch();
     $image_upload=move_uploaded_file($_FILES['image']['tmp_name'],$basepath.$image);
 if($category!==false && $image_upload!==false)
     {
-    $query="INSERT INTO php_project.posts set title=?,cat_id=?,body=?,image=?;";
+    $query="INSERT INTO php_project.posts set title=?,cat_id=?,body=?,image=?, created_at=now() ;";
     $statement=$pdo->prepare($query);
     $statement->execute([$_POST['title'],$_POST['cat_id'] ,$_POST['body'] ,$image]);
 }
